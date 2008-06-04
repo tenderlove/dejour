@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "dejour"
+
+Dejour.find(*(ARGV.length > 0 ? ARGV : ['git', 'pastejour']))
