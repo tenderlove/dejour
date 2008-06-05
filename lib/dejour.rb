@@ -8,13 +8,15 @@ require 'ruby-growl'
 Thread.abort_on_exception = true
 
 module Dejour
+  USER_CONFIG = ENV['HOME'] + "/.dejour"
+
   KNOWN_SERVICES = Hash.new { |h,k|
     h[k] = lambda { |reply, rr|
       [k, k]
     }
   }
   KNOWN_SERVICES['git'] = lambda { |reply, rr|
-    [ "git repository", "git clone #{reply.name}" ]
+    [ "git repository", "gitjour clone #{reply.name}" ]
   }
   KNOWN_SERVICES['pastejour'] = lambda { |reply, rr|
     (from, to) = *reply.name.split('-')
@@ -25,8 +27,8 @@ module Dejour
   }
 
   NOTIFICATION_NAME = 'ruby-growl Notification'
-  def self.find(*names)
-    g = Growl.new('localhost', 'ruby-growl', [NOTIFICATION_NAME])
+  def self.find(password = nil, *names)
+    g = Growl.new('localhost', 'ruby-growl', [NOTIFICATION_NAME], nil, password)
     seen_services = Hash.new { |h,k| h[k] = {} }
     mutex = Mutex.new
     seen_error_msg = false
