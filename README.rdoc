@@ -13,7 +13,13 @@ Discover awesome services near you.
   $ dejour
 
 Then watch the growl notifications fly!
-  
+
+== Setup Growl
+
+From ruby-growl help:
+	
+<blockquote>First you need to enable "Listen for incoming notifications" and "Allow remote application registration" on the Network tab of the Growl Preference Panel to send Growl Notifications from ruby-growl.</blockquote>
+
 == YOU CAN HAS NOTIFICATIONS
 
 Of new services on the network.  dejour looks for pastejour and gitjour
