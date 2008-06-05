@@ -32,9 +32,13 @@ module Dejour
           mutex.synchronize {
             unless seen_services[name].key?(reply.name)
               seen_services[name][reply.name] = true
-              g.notify( NOTIFICATION_NAME,
-                       *KNOWN_SERVICES[name].call(reply, rr)
-                      )
+              begin
+                g.notify( NOTIFICATION_NAME,
+                         *KNOWN_SERVICES[name].call(reply, rr)
+                        )
+              rescue
+                STDERR.puts "#{NOTIFICATION_NAME}: #{KNOWN_SERVICES[name].call(reply, rr).inspect}"
+              end
             end
           }
         end
