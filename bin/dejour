@@ -2,4 +2,5 @@
 
 require File.dirname(__FILE__) + '/../lib/dejour'
 
-Dejour.find(*(ARGV.length > 0 ? ARGV : ['git', 'pastejour']))
+service_names = Dejour::KNOWN_SERVICES.keys
+Dejour.find(*(ARGV.length > 0 ? ARGV : service_names))
