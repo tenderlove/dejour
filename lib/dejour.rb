@@ -20,6 +20,9 @@ module Dejour
     (from, to) = *reply.name.split('-')
     ['pastejour', "Paste from #{from} to #{to}"]
   }
+  KNOWN_SERVICES['rubygems'] = lambda { |reply, rr|
+    ['gemjour', "gem server #{reply.name}"]
+  }
 
   NOTIFICATION_NAME = 'ruby-growl Notification'
   def self.find(*names)
