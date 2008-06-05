@@ -29,6 +29,7 @@ module Dejour
     g = Growl.new('localhost', 'ruby-growl', [NOTIFICATION_NAME])
     seen_services = Hash.new { |h,k| h[k] = {} }
     mutex = Mutex.new
+    seen_error_msg = false
     services = names.map do |name|
       DNSSD.browse("_#{name}._tcp") do |reply|
         DNSSD.resolve(reply.name, reply.type, reply.domain) do |rr|
@@ -40,7 +41,22 @@ module Dejour
                          *KNOWN_SERVICES[name].call(reply, rr)
                         )
               rescue
-                STDERR.puts "#{NOTIFICATION_NAME}: #{KNOWN_SERVICES[name].call(reply, rr).inspect}"
+                puts <<-EOS unless seen_error_msg
+You may not have Growl + ruby-growl installed correctly.
+
+Get Growl from:
+  http://growl.info/
+  
+Get ruby-growl from:
+  sudo gem install ruby-growl
+
+Then (for OS X) you need to enable "Listen for incoming notifications" and 
+"Allow remote application registration" on the Network tab of the 
+Growl Preference Panel to send Growl Notifications from ruby-growl.
+
+                EOS
+                seen_error_msg = true
+                STDERR.puts KNOWN_SERVICES[name].call(reply, rr).join(": ")
               end
             end
           }
