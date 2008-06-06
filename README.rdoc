@@ -5,7 +5,6 @@ Discover awesome services near you.
 == Installation
 
   sudo gem install dnssd
-  sudo gem install ruby-growl
   sudo gem install aaronp-dejour --source=http://gems.github.com
   
 == Usage
@@ -13,12 +12,6 @@ Discover awesome services near you.
   $ dejour
 
 Then watch the growl notifications fly!
-
-== Setup Growl
-
-From ruby-growl help:
-	
-First you need to enable "Listen for incoming notifications" and "Allow remote application registration" on the Network tab of the Growl Preference Panel to send Growl Notifications from ruby-growl.
 
 == YOU CAN HAS NOTIFICATIONS
 

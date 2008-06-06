@@ -1,12 +1,11 @@
 Gem::Specification.new do |s|
   s.name = %q{dejour}
-  s.version = "1.1.1"
+  s.version = "1.2.0"
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aaron Patterson"]
-  s.autorequire = %q{dejour}
   s.date = %q{2008-06-05}
   s.default_executable = %q{dejour}
   s.description = %q{Find awesome stuff}
@@ -21,5 +20,5 @@ Gem::Specification.new do |s|
   s.summary = %q{Find awesome stuff}
 
   s.add_dependency(%q<dnssd>, [">= 0.6.0"])
-  s.add_dependency(%q<ruby-growl>, [">= 0"])
+  s.add_dependency(%q<aaronp-meow>, [">= 0"])
 end

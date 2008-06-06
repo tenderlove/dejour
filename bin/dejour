@@ -7,16 +7,5 @@ require File.dirname(__FILE__) + '/../lib/dejour'
 
 
 service_names = Dejour::KNOWN_SERVICES.keys
-password = nil
 
-if File.exists?(Dejour::USER_CONFIG)
-  password = YAML.load_file(Dejour::USER_CONFIG)['password']
-end
-
-GetoptLong.new(
-  ['--password', '-p', GetoptLong::REQUIRED_ARGUMENT ]
-).each { |name, arg|
-  password = arg if name == '--password'
-}
-
-Dejour.find(password, *(ARGV.length > 0 ? ARGV : service_names))
+Dejour.find(*(ARGV.length > 0 ? ARGV : service_names))

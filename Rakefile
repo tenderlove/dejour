@@ -23,7 +23,7 @@ dejour_gemspec = Gem::Specification.new do |s|
   s.executables      = %w(dejour)
   
   s.add_dependency "dnssd", ">= 0.6.0"
-  s.add_dependency "ruby-growl"
+  s.add_dependency "aaronp-meow"
 end
 
 Rake::GemPackageTask.new(dejour_gemspec) do |pkg|
