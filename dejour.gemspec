@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
   s.homepage = %q{http://github.com/aaronp/dejour}
   s.require_paths = ["lib"]
+  s.rubyforge_project = %q{dejour}
   s.rubygems_version = %q{1.1.1}
   s.summary = %q{Find awesome stuff}
 
