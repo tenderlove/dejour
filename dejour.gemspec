@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.summary = %q{Find awesome stuff}
 
   s.add_dependency(%q<dnssd>, [">= 0.6.0"])
-  s.add_dependency(%q<aaronp-meow>, [">= 0"])
+  s.add_dependency(%q<meow>, [">= 0"])
 end
