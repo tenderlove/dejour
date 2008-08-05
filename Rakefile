@@ -23,7 +23,7 @@ namespace :gem do
 end
 
 task :install => :package do
-  sh %{sudo gem install --local pkg/dejour-#{Dejour::VERSION}}
+  sh %{sudo gem install pkg/dejour-#{Dejour::VERSION}}
 end
 
 desc "Run all specs"
