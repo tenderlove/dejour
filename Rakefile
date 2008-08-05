@@ -3,7 +3,6 @@ require "fileutils"
 require "rubygems"
 require "rake/gempackagetask"
 require "spec/rake/spectask"
-
 require "./lib/dejour/version.rb"
 
 dejour_gemspec = Gem::Specification.new do |s|
